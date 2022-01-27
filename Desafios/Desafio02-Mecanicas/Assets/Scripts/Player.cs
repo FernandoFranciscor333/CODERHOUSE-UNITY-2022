@@ -41,7 +41,8 @@ public class Player : MonoBehaviour
     }
 
     public void Heal(){
-        health += 50;
+        if (health < 100)
+            health += 50;
         Debug.Log("HEALTH: "+ health);
     }
 
