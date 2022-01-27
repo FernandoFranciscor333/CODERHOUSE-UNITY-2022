@@ -5,7 +5,7 @@ using UnityEngine;
 public class Cannon : MonoBehaviour
 {
     [Header("Cannon Movement")]
-    [SerializeField] [Range(-2,2)] private float xMovement = 0;
+    [SerializeField][Range(-4,4)] private float xMovement = 0;
     [SerializeField] private float slideSpeed = 2;
 
     [Header("Shoot parameters")]
@@ -17,7 +17,7 @@ public class Cannon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnBalls", shootDelay, shootRate);
+        InvokeRepeating("Shoot", shootDelay, shootRate);
     }
 
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class Cannon : MonoBehaviour
         transform.Translate(speed * new Vector3(x,0,0) * Time.deltaTime);
     }
 
-    public void SpawnBalls(){
+    public void Shoot(){
         Instantiate(proyectile, spawner.transform);
     }
 }
