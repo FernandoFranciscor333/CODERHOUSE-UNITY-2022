@@ -42,19 +42,19 @@ public class WaterGun : MonoBehaviour
 
         public void Shoot(){
             if(Input.GetKeyDown(defaultShootKey)){
-                Instantiate(proyectile, spawner01.transform);
+                Instantiate(proyectile, spawner01.transform.position, proyectile.transform.rotation);
             } else if (Input.GetKeyDown(doubleShootKey)){
-                Instantiate(proyectile, spawner01.transform);
-                Instantiate(proyectile, spawner02.transform);
+                Instantiate(proyectile, spawner01.transform.position, proyectile.transform.rotation);
+                Instantiate(proyectile, spawner02.transform.position, proyectile.transform.rotation);
             } else if (Input.GetKeyDown(tripleShootKey)){
-                Instantiate(proyectile, spawner01.transform);
-                Instantiate(proyectile, spawner02.transform);
-                Instantiate(proyectile, spawner03.transform);
+                Instantiate(proyectile, spawner01.transform.position, proyectile.transform.rotation);
+                Instantiate(proyectile, spawner02.transform.position, proyectile.transform.rotation);
+                Instantiate(proyectile, spawner03.transform.position, proyectile.transform.rotation);
             } else if (Input.GetKeyDown(quadrupleShootKey)){
-                Instantiate(proyectile, spawner01.transform);
-                Instantiate(proyectile, spawner02.transform);
-                Instantiate(proyectile, spawner03.transform);
-                Instantiate(proyectile, spawner04.transform);
+                Instantiate(proyectile, spawner01.transform.position, proyectile.transform.rotation);
+                Instantiate(proyectile, spawner02.transform.position, proyectile.transform.rotation);
+                Instantiate(proyectile, spawner03.transform.position, proyectile.transform.rotation);
+                Instantiate(proyectile, spawner04.transform.position, proyectile.transform.rotation);
             }
     }
 }
