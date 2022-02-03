@@ -15,20 +15,14 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject spawner;
     [SerializeField] GameObject proyectile;
     [SerializeField] KeyCode defaultShootKey = KeyCode.Mouse0;
-    [SerializeField] float coolDown = 2f;
-
-    
+    [SerializeField] float coolDown = 2f;    
 
     private bool canMove = true;
     private bool canShoot = true;
     private float timePass;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
 
     // Update is called once per frame
     void Update()
@@ -60,7 +54,7 @@ public class Player : MonoBehaviour
                 } else {
                     transform.Translate(walkSpeed * Time.deltaTime * direction);
                 }
-        }            
+        }
     }
 
     public void Shoot(){
@@ -76,6 +70,5 @@ public class Player : MonoBehaviour
             timePass = 0;
             canShoot = true;
         }
-            
     }
 }

@@ -8,13 +8,8 @@ public class BalloonScript : MonoBehaviour
     [SerializeField] private Vector3 direction = new Vector3(0,1,0);
     [SerializeField] private float destroyTimer = 6f;
     private float timePass=0;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+
     void Update()
     {
         Move(direction, balloonSpeed);

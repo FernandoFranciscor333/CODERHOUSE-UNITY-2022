@@ -16,13 +16,11 @@ public class MovingSpawner : MonoBehaviour
     [SerializeField] float spawnDelay = 0f;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("Spawn", spawnDelay, spawnRate);
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -38,7 +36,7 @@ public class MovingSpawner : MonoBehaviour
 
         if(transform.position.x <= -xOffset){
             isMovingLeft = false;
-        }        
+        }
     }
 
     public void Move(Vector3 dir){
