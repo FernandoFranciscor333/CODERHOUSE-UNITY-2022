@@ -8,6 +8,8 @@ public class ShipPlayer : MonoBehaviour
     [Header("Move and Direction Parameters")]
     [SerializeField] private KeyCode speed2Key = KeyCode.W;
     [SerializeField] private KeyCode speed3Key = KeyCode.LeftShift;
+    [SerializeField] private KeyCode slowDownKey = KeyCode.S;
+    [SerializeField] private float shipSpeedSlowDown = 0.5f;
     [SerializeField] private float shipSpeedx1 = 1f;
     [SerializeField] private float shipSpeedx2 = 2f;
     [SerializeField] private float shipSpeedx3 = 4f;
@@ -35,14 +37,13 @@ public class ShipPlayer : MonoBehaviour
     void Update()
     {
         if(Input.GetKey(speed2Key)){
-            MoveShip(shipSpeedx2);
-            Debug.Log("x2");
+            MoveShip(shipSpeedx2);            
         }else if(Input.GetKey(speed3Key)){
-            MoveShip(shipSpeedx3);
-            Debug.Log("x3");
+            MoveShip(shipSpeedx3);            
+        }else if(Input.GetKey(slowDownKey)){
+            MoveShip(shipSpeedSlowDown);            
         } else {
-            MoveShip(shipSpeedx1);
-            Debug.Log("x1");
+            MoveShip(shipSpeedx1);            
         }
         
     }
