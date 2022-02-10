@@ -3,7 +3,32 @@ guid: 469590b378b10d94a980c7fc98fb4656
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LucesBlancas
+    second: {fileID: 2100000, guid: 224286540c630d54aa8582d1fbe3f201, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LucesRojas
+    second: {fileID: 2100000, guid: da409471d6e9d04438dabb7cf4e55f3b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Oruga
+    second: {fileID: 2100000, guid: 981848c7667911f4b950796de0478452, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ruedas
+    second: {fileID: 2100000, guid: adb52a590ddc6514c943267be8198f1a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tank
+    second: {fileID: 2100000, guid: 93feb02a046b7d34c96d57fe10c5254a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
