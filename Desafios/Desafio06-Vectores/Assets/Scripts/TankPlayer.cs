@@ -80,7 +80,7 @@ public class TankPlayer : MonoBehaviour
     }
 
     public void Shoot(){
-        if(Input.GetKeyDown(shootKey) || Input.GetKeyDown(altShootKey)  && canShoot){
+        if((Input.GetKeyDown(shootKey) || Input.GetKeyDown(altShootKey))  && canShoot){
             GameObject createdProjectile = Instantiate(projectile, cannonMouth.transform.position, cannonMouth.transform.rotation);
             createdProjectile.GetComponent<Rigidbody>().velocity = cannonMouth.transform.forward * shootSpeed;
             canShoot = false;

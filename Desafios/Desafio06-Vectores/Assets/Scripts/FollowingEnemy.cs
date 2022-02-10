@@ -18,6 +18,7 @@ public class FollowingEnemy : MonoBehaviour
     [SerializeField] float shootSpeed = 200f;
     [SerializeField] float coolDown = 5f;    
 
+    private float health = 100;
 
     private bool canShoot = false;
     private float timePass = 0;
@@ -31,6 +32,9 @@ public class FollowingEnemy : MonoBehaviour
     {
         RotateToTarget();        
         ChasePlayer();
+
+        if(health <= 0)
+            Die();
 
     }
 
@@ -76,6 +80,16 @@ public class FollowingEnemy : MonoBehaviour
         if(timePass > coolDown){
             timePass = 0;
             canShoot = true;
+        }
+    }
+
+    private void Die(){
+        Destroy(this.gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if(other.tag=="projectile"){
+            health -= 50;
         }
     }    
 }

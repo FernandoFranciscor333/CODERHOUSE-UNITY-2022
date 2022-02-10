@@ -27,7 +27,7 @@ public class EnumEnemy : MonoBehaviour
     [SerializeField] float shootSpeed = 200f;
     [SerializeField] float coolDown = 10f;       
 
-
+    private float health = 100;
     private bool canShoot = false;
     private float timePass = 0;
 
@@ -55,6 +55,9 @@ public class EnumEnemy : MonoBehaviour
                 Debug.Log("ERROR");
                 break;
         }
+
+        if(health <= 0)
+            Die();
     }
 
     public void RotateToTarget(){
@@ -98,5 +101,15 @@ public class EnumEnemy : MonoBehaviour
             timePass = 0;
             canShoot = true;
         }
-    }    
+    }
+
+    private void Die(){
+        Destroy(this.gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if(other.tag=="projectile"){
+            health -= 50;
+        }
+    }
 }

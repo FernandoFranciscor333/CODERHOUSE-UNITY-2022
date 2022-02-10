@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3958501916430279134}
   m_Layer: 0
   m_Name: TanquePlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,8 +57,9 @@ MonoBehaviour:
   upperPointLimit: 10
   lowerPointLimit: -10
   shootKey: 323
+  altShootKey: 32
   shootSpeed: 200
-  coolDown: 2
+  coolDown: 5
   turret: {fileID: 3958501917975287273}
   cannon: {fileID: 3958501916726182600}
   cannonMouth: {fileID: 3958501917855414192}

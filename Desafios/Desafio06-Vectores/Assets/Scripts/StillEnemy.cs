@@ -14,8 +14,9 @@ public class StillEnemy : MonoBehaviour
 
     [SerializeField] float shootDistance = 400f;
     [SerializeField] float shootSpeed = 200f;
-    [SerializeField] float coolDown = 15f;    
+    [SerializeField] float coolDown = 15f;
 
+    private float health = 100;
 
     private bool canShoot = false;
     private float timePass = 0;
@@ -33,6 +34,9 @@ public class StillEnemy : MonoBehaviour
             PointToTarget();
             Shoot();
         }
+
+        if(health <= 0)
+            Die();
     }
 
     public void PointToTarget(){        
@@ -60,5 +64,15 @@ public class StillEnemy : MonoBehaviour
             timePass = 0;
             canShoot = true;
         }
-    }    
+    }
+
+    private void Die(){
+        Destroy(this.gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if(other.tag=="projectile"){
+            health -= 50;
+        }
+    }
 }
