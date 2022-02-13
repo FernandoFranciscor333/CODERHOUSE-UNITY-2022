@@ -4,31 +4,54 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
+    [Header("Movement")]
     [SerializeField] float rotationSpeed = 5f;
-    private Vector2 currentInput;
-    private Vector3 moveDirection;
-    float speed = 3f;
-    float xAxis;
-    public bool beenResized = false;
+    [SerializeField] float speed = 3f;
 
+    //Movement
+    private Vector2 currentInput;
+    private Vector3 moveDirection;    
+    float xAxis;
+
+    //Booleans
+    private bool beenResized = false;    
+    private bool playerHasCrossed = false;
+
+    //Resize
     float halfSize = 0.5f;
     float doubleSize = 1f;
-    
+
+    //Timer
+    public float timePass = 0;
+    public float coolDown = 2f;
+    public float resizeCount = 0.5f;    
 
     private CharacterController characterController;
+    public GameObject ob;    
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         Move();
         Rotate();
+
+        if(playerHasCrossed){
+            timePass += Time.deltaTime;
+                    
+            if(timePass > resizeCount){
+                if(!beenResized){
+                    Resize(halfSize);
+                    beenResized = true;
+                    playerHasCrossed = false;
+                    timePass = 0;
+                } else {
+                    Resize(doubleSize);
+                    beenResized = false;
+                    playerHasCrossed = false;
+                    timePass = 0;
+                }
+            }
+        }
     }
 
     void Awake() {
@@ -51,27 +74,38 @@ public class Player : MonoBehaviour
 
     public void Resize(float resize){
         transform.localScale = new Vector3(resize,resize,resize);
+    }    
+
+    void OnTriggerEnter(Collider other) {
+        if(other.tag == "Portal"){
+            Debug.Log(other.name);
+            playerHasCrossed = true;
+
+            if(GameObject.Find(other.name).GetComponent("Shrinker") == null){
+                Debug.Log("No se encontró ningun componente llamado Shrinker");
+            } else {
+                Debug.Log("Se encontró el componente Shrinker");
+            }
+        }
     }
 
-    private void OnTriggerEnter(Collider other) {
+    private void OnCollisionStay(Collision other) {
+        if(other.gameObject.name == "Wall"){
+            
+            Debug.Log(other.gameObject.name);
+            
+            timePass += Time.deltaTime;
+        
+            if(timePass > coolDown){
+                float xRandomPosition = Random.Range(-3f,8f);
+                float zRandomPosition = Random.Range(-5f,10f);
+                float yRandomRotation = Random.Range(30f,-30f);
 
-        if(other.tag == "Portal" && !beenResized){
-            Resize(halfSize);
+                other.gameObject.transform.position = new Vector3(xRandomPosition,2f,zRandomPosition);
+                other.gameObject.transform.localRotation = Quaternion.Euler(0,yRandomRotation,0);   
+                
+                timePass = 0;
+            }        
         }
-
-        if(other.tag == "Portal" && beenResized){
-            Resize(doubleSize);
-        }
-    }
-
-    private void OnTriggerExit(Collider other) {
-        if(other.tag == "Portal" && !beenResized){
-            beenResized = false;
-        } else {
-            beenResized = true;
-        }
-
-    }
-
-    
+    }    
 }
