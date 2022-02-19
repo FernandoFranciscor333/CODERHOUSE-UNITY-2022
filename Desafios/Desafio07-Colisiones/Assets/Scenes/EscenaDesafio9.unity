@@ -153,8 +153,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0599289, y: 1.0311403, z: 1.3252087}
+  m_Center: {x: 0.007301569, y: 0.015570164, z: 0.012968957}
 --- !u!23 &321759228
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -211,8 +211,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321759226}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.7, y: 2, z: 3.35}
+  m_LocalRotation: {x: -0, y: 0.000000044703484, z: -0, w: 1}
+  m_LocalPosition: {x: 2.37, y: 2, z: 2.6}
   m_LocalScale: {x: 4, y: 4, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -593,6 +593,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1025107159}
+  - component: {fileID: 1025107160}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -618,6 +619,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1025107160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025107158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca3c2c57efc01c243bf524533c0488f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1078516601
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,6 +931,7 @@ GameObject:
   - component: {fileID: 1241696632}
   - component: {fileID: 1241696631}
   - component: {fileID: 1241696627}
+  - component: {fileID: 1241696633}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -938,10 +952,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 5
-  halfSized: 0
-  reSized: 1
-  beenResized: 0
-  playerIsOverlaping: 0
+  speed: 3
+  timePass: 0
+  coolDown: 2
+  resizeCount: 0.5
+  ob: {fileID: 0}
 --- !u!23 &1241696628
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1016,10 +1031,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.5692162
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.003922403, y: 0, z: -0.0051456094}
 --- !u!143 &1241696632
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1038,3 +1053,19 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1241696633
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241696626}
+  serializedVersion: 2
+  m_Mass: 5
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
